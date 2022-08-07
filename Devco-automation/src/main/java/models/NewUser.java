@@ -3,34 +3,24 @@ package models;
 public class NewUser {
 
     private String name;
-    private String displayNAme;
     private String email;
     private String worngEmail;
+    private String invalidEmail;
     private String password;
     private String wrongPassord;
-    private String phoneNumber;
-    private String day;
-    private String year;
-    private String country;
-    private String address;
-    private String town;
-    private String zipCode;
+    private String invalidPassword;
+
 
 
     NewUser(){
         name = "Hernan Malave";
-        displayNAme = "Hernan";
         email = "Hernanmalave%s@gmail.com";
         worngEmail = "testOneDevco@test.com";
+        invalidEmail = "hernan";
         password = "testOne1234";
         wrongPassord = "testOne1235";
-        phoneNumber = "3105001020";
-        day = "30";
-        year = "1986";
-        country = "Colombia";
-        address = "Medellin";
-        town = "Medellin";
-        zipCode = "50001";
+        invalidPassword = "1234";
+
     }
 
 
@@ -40,14 +30,6 @@ public class NewUser {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDisplayNAme() {
-        return displayNAme;
-    }
-
-    public void setDisplayNAme(String displayNAme) {
-        this.displayNAme = displayNAme;
     }
 
     public String getEmail() {
@@ -82,59 +64,19 @@ public class NewUser {
         this.wrongPassord = wrongPassord;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getInvalidEmail() {
+        return invalidEmail;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setInvalidEmail(String invalidEmail) {
+        this.invalidEmail = invalidEmail;
     }
 
-    public String getDay() {
-        return day;
+    public String getInvalidPassword() {
+        return invalidPassword;
     }
 
-    public void setDay(String day) {
-        this.day = day;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getTown() {
-        return town;
-    }
-
-    public void setTown(String town) {
-        this.town = town;
-    }
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public void setInvalidPassword(String invalidPassword) {
+        this.invalidPassword = invalidPassword;
     }
 }

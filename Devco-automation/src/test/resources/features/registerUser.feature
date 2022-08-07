@@ -1,6 +1,6 @@
 #Language: en
 #Author: Hernan Malave
-
+@RegisterSuccessful
 Feature: Register user in website
 
   As a selection process
@@ -10,10 +10,14 @@ Feature: Register user in website
   Background:
     Given the user selects the register option in the menu main
 
-    @RegisterSuccessful
-    Scenario: A user wanna register on the website and fill in her data
-      When user registered in website
-      And fill in her data
-      Then user should look in the interface her name
+  Scenario: A user wants to register but the password does not match
+    When A user enters a wrong password
+    Then the system cannot register it
 
-      Scenario: A user
+  Scenario: A user type email with an invalid format
+    When A user enters an invalid format email
+    Then the system going to notify her email invalid
+
+  Scenario: A user type the password with an invalid format
+    When A user enters an invalid format password
+    Then the system going to notify her password invalid

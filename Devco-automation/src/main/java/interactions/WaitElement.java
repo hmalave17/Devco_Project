@@ -15,7 +15,9 @@ public class WaitElement implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(WaitUntil.the(this.element, WebElementStateMatchers.isVisible()));
+        actor.attemptsTo(
+                WaitUntil.the(this.element, WebElementStateMatchers.isVisible())
+        );
     }
     public static WaitElement visible(Target element){
         return new WaitElement(element);

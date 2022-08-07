@@ -13,8 +13,11 @@ public class Click implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(WaitElement.visible(this.element));
-        actor.attemptsTo(net.serenitybdd.screenplay.actions.Click.on(this.element));
+
+        actor.attemptsTo(
+                WaitElement.visible(this.element),
+                net.serenitybdd.screenplay.actions.Click.on(this.element)
+        );
     }
     public static Click on(Target element){
         return new Click(element);
