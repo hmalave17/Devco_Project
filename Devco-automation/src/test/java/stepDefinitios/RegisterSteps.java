@@ -1,7 +1,6 @@
 package stepDefinitios;
 
 import execptions.UnexpectedMessage;
-import interactions.Click;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,6 +13,7 @@ import questions.MessageAnswer;
 import tasks.InvalidEmail;
 import tasks.InvalidPassword;
 import tasks.Password;
+import tasks.SelectOption;
 import userInterfaces.HomePage;
 import userInterfaces.RegisterPage;
 
@@ -28,11 +28,10 @@ public class RegisterSteps {
     WebDriver herBrowser;
     Actor user =Actor.named(USER.getWord());
 
-
     @Given("the user selects the register option in the menu main")
     public void theUserSelectsTheRegisterOptionInTheMenuMain() {
         user.can(BrowseTheWeb.with(herBrowser));
-        user.attemptsTo(Click.on(HomePage.BUTTON_REGISTER));
+        user.attemptsTo(SelectOption.menu(HomePage.BUTTON_REGISTER));
     }
 
     @When("A user enters a wrong password")

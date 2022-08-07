@@ -1,6 +1,6 @@
 package userInterfaces;
 
-import net.serenitybdd.core.annotations.findby.By;
+import org.openqa.selenium.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 
