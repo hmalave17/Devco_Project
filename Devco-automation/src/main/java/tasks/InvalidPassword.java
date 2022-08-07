@@ -19,11 +19,12 @@ public class InvalidPassword implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
+        String password = NumberRandom.email(1000,9000);
         actor.attemptsTo(
                 Enter.keyValues(String.format(newUser.getEmail(), NumberRandom.email(10000, 90000))).into(RegisterPage.INPUT_EMAIL),
                 Click.on(RegisterPage.BUTTON_CONTINUE_EMAIL),
-                Type.on(RegisterPage.INPUT_NEW_PASSWORD, newUser.getInvalidPassword()),
-                Type.on(RegisterPage.INPUT_CONFIRMED_PASSWORD, newUser.getInvalidPassword()),
+                Type.on(RegisterPage.INPUT_NEW_PASSWORD, password),
+                Type.on(RegisterPage.INPUT_CONFIRMED_PASSWORD, password),
                 interactions.Click.on(RegisterPage.CREATE_ACOUNT)
         );
     }
