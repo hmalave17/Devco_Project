@@ -11,11 +11,9 @@ public class RegisterPage extends PageObject {
     public static final Target INPUT_NEW_PASSWORD = Target.the("Input new password").located(By.name("new_password"));
     public static final Target INPUT_CONFIRMED_PASSWORD = Target.the("Input confirmed password").located(By.name("confirmed_password"));
     public static final Target CREATE_ACOUNT = Target.the("Create Acount").located(By.className("Ut3prtt_wDsi7NM_83Jc"));
-    public static final Target FRAME_NO_ROBOT = Target.the("Iframe no robot").located(By.xpath("/html/body/div[1]/div/div/div/div[2]/div[1]/div/div/div/div/div/div/form/div[3]/div[2]//iframe[5]"));
-    public static final Target BUTTON_NO_ROBOT = Target.the("Button no Robot").located(By.xpath("/html/body/div/div/div[2]/div[2]/p"));
-    public static final Target QUESTION = Target.the("Question").located(By.xpath("/html/body/div[1]/div/div/div/div[2]/div[1]/div/div/div/div/div/div/form/div[3]/h3"));
+    public static final Target MESSAGE_PASSWORD_DOESNOT_MATCH = Target.the("Message password doestnot match").located(By.id("confirmed_password-note"));
+    public static final Target MESSAGE_EMAIL_INVALID = Target.the("Message email invalid").located(By.id("username-note"));
+    public static final Target MESSAGE_PASSWORD_INVALID = Target.the("Message password invalid").located(By.id("new_password-note"));
 
 
-
-    //
 }

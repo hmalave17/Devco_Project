@@ -17,8 +17,10 @@ public class Type implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-
-        actor.attemptsTo(Enter.keyValues(this.text).into(this.element));
+        actor.attemptsTo(
+                WaitElement.visible(this.element),
+                Enter.keyValues(this.text).into(this.element)
+        );
     }
     public static Type on (Target element, String text){
         return new Type(element, text);
