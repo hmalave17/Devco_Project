@@ -67,4 +67,6 @@ public class RegisterSteps {
                 Matchers.equalTo(INVALID_PASSWORD.getInformative())).orComplainWith(UnexpectedMessage.class, UNEXPECTED_MESSAGE));
     }
 
+
+
 }
