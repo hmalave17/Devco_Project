@@ -10,6 +10,7 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.openqa.selenium.WebDriver;
+
 import static enums.Words.URL_HOME_PAGE;
 import static enums.Words.USER;
 import static net.serenitybdd.screenplay.actors.OnStage.drawTheCurtain;

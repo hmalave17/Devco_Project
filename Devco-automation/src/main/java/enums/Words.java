@@ -4,6 +4,8 @@ public enum Words {
 
     URL_HOME_PAGE("url_home_page"),
     USER("user"),
+    GREATER("greater than"),
+    LESS("less that"),
 
 
     ;

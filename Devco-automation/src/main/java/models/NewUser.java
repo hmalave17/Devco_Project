@@ -2,17 +2,13 @@ package models;
 
 public class NewUser {
 
+    private String name;
     private String email;
     private String invalidEmail;
     private String password;
     private String wrongPassord;
+    private String createEmail;
 
-    NewUser(){
-        email = "Hernanmalave%s@gmail.com";
-        invalidEmail = "hernan";
-        password = "testOne1234";
-        wrongPassord = "testOne1235";
-    }
 
     public String getEmail() {
         return email;
@@ -44,5 +40,21 @@ public class NewUser {
 
     public void setInvalidEmail(String invalidEmail) {
         this.invalidEmail = invalidEmail;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCreateEmail() {
+        return createEmail;
+    }
+
+    public void setCreateEmail(String createEmail) {
+        this.createEmail = createEmail;
     }
 }

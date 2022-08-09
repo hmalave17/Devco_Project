@@ -1,7 +1,7 @@
 #Language: en
 #Author: Hernan Malave
-@LoginRegresion @RegressionTest
-Feature: Register Login in booking
+@LoginRegression @RegressionTest
+Feature: Login successful in website
 
   As a selection process
   I wanna build a login feature with its alternative cases

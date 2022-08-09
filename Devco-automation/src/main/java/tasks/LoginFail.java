@@ -9,10 +9,10 @@ import net.serenitybdd.screenplay.actions.Click;
 import userInterfaces.LoginPage;
 import userInterfaces.RegisterPage;
 
-public class Login implements Task {
+public class LoginFail implements Task {
 
     private NewUser newUser;
-    public Login(NewUser newUser){
+    public LoginFail(NewUser newUser){
         this.newUser = newUser;
     }
 
@@ -21,12 +21,11 @@ public class Login implements Task {
         actor.attemptsTo(
                 Type.on(LoginPage.INPUT_EMAIL, newUser.getEmail()),
                 Click.on(RegisterPage.BUTTON_CONTINUE_EMAIL),
-                Type.on(LoginPage.INPUT_PASSWORD, newUser.getPassword()),
+                Type.on(LoginPage.INPUT_PASSWORD, newUser.getWrongPassord()),
                 interactions.Click.on(LoginPage.BUTTON_LOGIN)
         );
     }
-
-    public static Login user(NewUser newUser){
-        return Tasks.instrumented(Login.class, newUser);
+    public static LoginFail user(NewUser newUser){
+        return Tasks.instrumented(LoginFail.class, newUser);
     }
 }
