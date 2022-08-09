@@ -11,5 +11,5 @@ public class SelectHotelPage extends PageObject {
     public static final Target MESSAGE_ROOM_MANDATORY =Target.the("Message room mandatory").located(By.xpath("//div[@data-component='hotel/new-rooms-table/select-error-tooltip']/div/p"));
     public static final Target LABEL_PRICE = Target.the("Label price").located(By.xpath("//div[@data-testid='availability-rate-wrapper']/div/div/div/div[2]"));
     public static final Target FILTER_PRICE = Target.the("Filter price").located(By.xpath("//div[@data-testid='filters-sidebar']/div[2]/div/div[@data-filters-item='pri:pri=1']/input[@type='checkbox']"));
-    public static final Target LABEL_FILTER = Target.the("AA").located(By.xpath("//div[@data-testid='filters-sidebar']/div[2]/div/div[@data-filters-item='pri:pri=1']/label/span[3]/div/div/div"));
+    public static final Target LABEL_FILTER = Target.the("label filter").located(By.xpath("//div[@data-testid='filters-sidebar']/div[2]/div/div[@data-filters-item='pri:pri=1']/label/span[3]/div/div/div"));
 }

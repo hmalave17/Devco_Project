@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-import static userInterfaces.HomePage.INPUT_DESTINY;
+import static enums.Routs.INPUT_DESTINY;
 
 
 public class Chooses implements Task {
@@ -22,8 +22,8 @@ public class Chooses implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        nav.findElement(By.xpath(INPUT_DESTINY)).sendKeys(user.getAddessDestiny());
-        nav.findElement(By.xpath(INPUT_DESTINY)).sendKeys(Keys.ENTER);
+        nav.findElement(By.xpath(INPUT_DESTINY.getElements())).sendKeys(user.getAddessDestiny());
+        nav.findElement(By.xpath(INPUT_DESTINY.getElements())).sendKeys(Keys.ENTER);
     }
     public static Chooses destiny(WebDriver nav, Hooking user){
         return Tasks.instrumented(Chooses.class, nav, user);

@@ -9,8 +9,7 @@ import net.serenitybdd.screenplay.Tasks;
 import org.openqa.selenium.WebDriver;
 import userInterfaces.AvailabilityPage;
 
-
-import static userInterfaces.BookPage.*;
+import static enums.Routs.BUTTON_DOWN;
 
 public class ConfirmAvailability implements Task {
 
@@ -25,7 +24,7 @@ public class ConfirmAvailability implements Task {
         actor.attemptsTo(
                 SwitchTabWindow.change(),
                 net.serenitybdd.screenplay.actions.Scroll.to(AvailabilityPage.LABEL_AVAILABILITY_),
-                SelectRoom.user(nav, BUTTON_DOWN),
+                SelectRoom.user(nav, BUTTON_DOWN.getElements()),
                 Click.on(AvailabilityPage.BUTTON_BOOK)
         );
     }

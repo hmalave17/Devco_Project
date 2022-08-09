@@ -24,7 +24,7 @@ public class Password implements Task {
                 Click.on(RegisterPage.BUTTON_CONTINUE_EMAIL),
                 Type.on(RegisterPage.INPUT_NEW_PASSWORD, newUser.getPassword()),
                 Type.on(RegisterPage.INPUT_CONFIRMED_PASSWORD, newUser.getWrongPassord()),
-                interactions.Click.on(RegisterPage.CREATE_ACOUNT)
+                interactions.Click.on(RegisterPage.CREATE_ACCOUNT)
         );
     }
     public static Password incorrect(NewUser newUser){
