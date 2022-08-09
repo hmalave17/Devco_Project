@@ -1,49 +1,53 @@
 package tasks;
 
+import interactions.Click;
+import interactions.Type;
+import models.Hooking;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-import static userInterfaces.BookPage.*;
-import static userInterfaces.BookPage.INPUT_EMAIL;
+import net.serenitybdd.screenplay.actions.Scroll;
+import net.thucydides.core.annotations.Shared;
+import userInterfaces.DataPage;
 
 public class FillWrongData implements Task {
 
-    private WebDriver nav;
     private int testCase;
 
-    public FillWrongData(WebDriver nav, int testCase) {
-        this.nav = nav;
+    public FillWrongData(int testCase) {
         this.testCase = testCase;
     }
+
+    @Shared
+    Hooking user;
 
     @Override
     public <T extends Actor> void performAs(T actor) {
 
         switch (testCase) {
             case 1:
-                nav.findElement(By.xpath(INPUT_NAME)).sendKeys("Hernan");
-                nav.findElement(By.xpath(INPUT_LASTNAME)).sendKeys("Malave");
-                nav.findElement(By.xpath(INPUT_EMAIL)).sendKeys("testOneDevco");
-                nav.findElement(By.xpath(INPUT_EMAIL_CONFIRM)).sendKeys("testOneDevco");
+                actor.attemptsTo(
+                        Type.on(DataPage.INPUT_NAME, user.getName()),
+                        Type.on(DataPage.INPUT_LAST_NAME, user.getLastName()),
+                        Type.on(DataPage.INPUT_EMAIL, user.getInvalidEmail()),
+                        Type.on(DataPage.INPUT_EMAIL_CONFIRM, user.getInvalidEmail()));
                 break;
             case 2:
-                nav.findElement(By.xpath(INPUT_NAME)).sendKeys("Hernan");
-                nav.findElement(By.xpath(INPUT_LASTNAME)).sendKeys("Malave");
-                nav.findElement(By.xpath(INPUT_EMAIL)).sendKeys("testOneDevco@test.com");
-                nav.findElement(By.xpath(INPUT_EMAIL_CONFIRM)).sendKeys("testOneDevco@gmail.com");
-                nav.findElement(By.xpath(BUTTON_RADIO)).click();
+                actor.attemptsTo(
+                        Type.on(DataPage.INPUT_NAME, user.getName()),
+                        Type.on(DataPage.INPUT_LAST_NAME, user.getLastName()),
+                        Type.on(DataPage.INPUT_EMAIL, user.getEmail()),
+                        Type.on(DataPage.INPUT_EMAIL_CONFIRM, user.getEmailWrong()));
                 break;
             default:
-                nav.findElement(By.xpath(BUTTON_NEXT)).click();
+                actor.attemptsTo(
+                        Scroll.to(DataPage.BUTTON_NEXT),
+                        Click.on(DataPage.BUTTON_NEXT));
                 break;
         }
-
     }
 
-    public static FillWrongData user(WebDriver nav, int testCase) {
-        return Tasks.instrumented(FillWrongData.class, nav, testCase);
+    public static FillWrongData user(int testCase) {
+        return Tasks.instrumented(FillWrongData.class, testCase);
     }
 }

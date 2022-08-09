@@ -1,30 +1,23 @@
 package tasks;
 
-import interactions.Scroll;
+import interactions.Click;
 import interactions.SwitchTabWindow;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-import static userInterfaces.BookPage.BUTTON_BOOKING;
-import static userInterfaces.BookPage.LABEL_AVAILABILITY;
+import userInterfaces.AvailabilityPage;
 
 public class Room implements Task {
 
-    private WebDriver nav;
-    public Room(WebDriver nav){
-        this.nav=nav;
-    }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(SwitchTabWindow.change());
-        actor.attemptsTo(Scroll.to(nav, LABEL_AVAILABILITY));
-        nav.findElement(By.xpath(BUTTON_BOOKING)).click();
+        actor.attemptsTo(
+                SwitchTabWindow.change(),
+                net.serenitybdd.screenplay.actions.Scroll.to(AvailabilityPage.LABEL_AVAILABILITY_),
+                Click.on(AvailabilityPage.BUTTON_BOOK)
+                );
     }
-    public static Room mandatory(WebDriver nav){
-        return Tasks.instrumented(Room.class, nav);
+    public static Room mandatory(){
+        return Tasks.instrumented(Room.class);
     }
 }

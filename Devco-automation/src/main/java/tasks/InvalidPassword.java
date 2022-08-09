@@ -6,29 +6,30 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.thucydides.core.annotations.Shared;
+import userInterfaces.LoginPage;
 import userInterfaces.RegisterPage;
 import utils.NumberRandom;
 
 public class InvalidPassword implements Task {
 
-    @Shared
-    NewUser newUser;
+    private NewUser newUser;
+    public InvalidPassword(NewUser newUser){
+        this.newUser = newUser;
+    }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
 
         String password = NumberRandom.email(1000,9000);
         actor.attemptsTo(
-                Enter.keyValues(String.format(newUser.getEmail(), NumberRandom.email(10000, 90000))).into(RegisterPage.INPUT_EMAIL),
+                Type.on(LoginPage.INPUT_EMAIL, String.format(newUser.getCreateEmail(), NumberRandom.email(10000,99999))),
                 Click.on(RegisterPage.BUTTON_CONTINUE_EMAIL),
                 Type.on(RegisterPage.INPUT_NEW_PASSWORD, password),
                 Type.on(RegisterPage.INPUT_CONFIRMED_PASSWORD, password),
                 interactions.Click.on(RegisterPage.CREATE_ACOUNT)
         );
     }
-    public static InvalidPassword format(){
-        return Tasks.instrumented(InvalidPassword.class);
+    public static InvalidPassword format(NewUser newUser){
+        return Tasks.instrumented(InvalidPassword.class, newUser);
     }
 }

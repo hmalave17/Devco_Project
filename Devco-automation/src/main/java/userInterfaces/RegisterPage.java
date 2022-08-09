@@ -6,7 +6,6 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class RegisterPage extends PageObject {
 
-    public static final Target INPUT_EMAIL = Target.the("Input email").located(By.name("username"));
     public static final Target BUTTON_CONTINUE_EMAIL = Target.the("Button continue email").located(By.className("Ut3prtt_wDsi7NM_83Jc"));
     public static final Target INPUT_NEW_PASSWORD = Target.the("Input new password").located(By.name("new_password"));
     public static final Target INPUT_CONFIRMED_PASSWORD = Target.the("Input confirmed password").located(By.name("confirmed_password"));

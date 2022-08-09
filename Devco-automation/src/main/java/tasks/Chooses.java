@@ -1,5 +1,6 @@
 package tasks;
 
+import models.Hooking;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -13,16 +14,18 @@ import static userInterfaces.HomePage.INPUT_DESTINY;
 public class Chooses implements Task {
 
     private WebDriver nav;
-    public Chooses(WebDriver nav){
+    private Hooking user;
+    public Chooses(WebDriver nav, Hooking user){
         this.nav = nav;
+        this.user = user;
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        nav.findElement(By.xpath(INPUT_DESTINY)).sendKeys("Miami, Florida, Estados Unidos");
+        nav.findElement(By.xpath(INPUT_DESTINY)).sendKeys(user.getAddessDestiny());
         nav.findElement(By.xpath(INPUT_DESTINY)).sendKeys(Keys.ENTER);
     }
-    public static Chooses destiny(WebDriver nav){
-        return Tasks.instrumented(Chooses.class, nav);
+    public static Chooses destiny(WebDriver nav, Hooking user){
+        return Tasks.instrumented(Chooses.class, nav, user);
     }
 }

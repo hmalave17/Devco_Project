@@ -4,24 +4,19 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import userInterfaces.BookPage;
+import userInterfaces.SelectHotelPage;
 
 public class ValidateFilterPrice implements Task {
 
-    private WebDriver nav;
-    public ValidateFilterPrice(WebDriver nav){
-        this.nav = nav;
-    }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
-        nav.findElement(By.xpath("//div[@class='fa3f76ae6b']/div/table/tbody/tr[2]/td[3]/span[@class='b21c1c6c83']")).click();
-        nav.findElement(By.xpath("//*[@id=\"left_col_wrapper\"]/div[1]/div/div/form/div/div[6]/div/button")).click();
-        actor.attemptsTo(Click.on(BookPage.A));
+        actor.attemptsTo(
+                interactions.Click.on(SelectHotelPage.BUTTON_CALENDAR_DAY),
+                interactions.Click.on(SelectHotelPage.BUTTON_SEARCH),
+                Click.on(SelectHotelPage.FILTER_PRICE));
     }
-    public static ValidateFilterPrice hotel(WebDriver nav){
-        return Tasks.instrumented(ValidateFilterPrice.class, nav);
+
+    public static ValidateFilterPrice hotel() {
+        return Tasks.instrumented(ValidateFilterPrice.class);
     }
 }

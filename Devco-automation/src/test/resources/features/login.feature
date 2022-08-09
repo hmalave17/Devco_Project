@@ -1,6 +1,6 @@
 #Language: en
 #Author: Hernan Malave
-@LoginRegresion @RegressionTest
+@LoginRegression @RegressionTest
 Feature: Login successful in website
 
   As a selection process

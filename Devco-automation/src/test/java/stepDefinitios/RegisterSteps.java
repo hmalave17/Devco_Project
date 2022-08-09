@@ -4,18 +4,18 @@ import execptions.UnexpectedMessage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import models.DataExcel;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Shared;
 import org.hamcrest.Matchers;
 import org.openqa.selenium.WebDriver;
 import questions.MessageAnswer;
-import tasks.InvalidEmail;
-import tasks.InvalidPassword;
-import tasks.Password;
-import tasks.SelectOption;
+import tasks.*;
 import userInterfaces.HomePage;
 import userInterfaces.RegisterPage;
+import utils.Converter;
 
 import static enums.Message.*;
 import static enums.Words.USER;
@@ -28,25 +28,29 @@ public class RegisterSteps {
     WebDriver herBrowser;
     Actor user =Actor.named(USER.getWord());
 
+    @Shared
+    DataExcel dataExcel;
+
     @Given("the user selects the register option in the menu main")
     public void theUserSelectsTheRegisterOptionInTheMenuMain() {
         user.can(BrowseTheWeb.with(herBrowser));
+        user.attemptsTo(SetData.user());
         user.attemptsTo(SelectOption.menu(HomePage.BUTTON_REGISTER));
     }
 
     @When("A user enters a wrong password")
     public void aUserEntersAWrongPassword() {
-        user.attemptsTo(Password.incorrect());
+        user.attemptsTo(Password.incorrect(Converter.registre(dataExcel)));
     }
 
     @When("A user enters an invalid format email")
     public void aUserEntersAnInvalidFormatEmail() {
-        user.attemptsTo(InvalidEmail.format());
+        user.attemptsTo(InvalidEmail.format(Converter.registre(dataExcel)));
     }
 
     @When("A user enters an invalid format password")
     public void aUserEntersAnInvalidFormatPassword() {
-        user.attemptsTo(InvalidPassword.format());
+        user.attemptsTo(InvalidPassword.format(Converter.registre(dataExcel)));
     }
 
     @Then("the system cannot register it")
