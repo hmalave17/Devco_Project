@@ -1,6 +1,6 @@
 package tasks;
 
-import models.Hooking;
+import models.Transaccion;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -14,8 +14,8 @@ import static enums.Routs.INPUT_DESTINY;
 public class Chooses implements Task {
 
     private WebDriver nav;
-    private Hooking user;
-    public Chooses(WebDriver nav, Hooking user){
+    private Transaccion user;
+    public Chooses(WebDriver nav, Transaccion user){
         this.nav = nav;
         this.user = user;
     }
@@ -25,7 +25,7 @@ public class Chooses implements Task {
         nav.findElement(By.xpath(INPUT_DESTINY.getElements())).sendKeys(user.getAddessDestiny());
         nav.findElement(By.xpath(INPUT_DESTINY.getElements())).sendKeys(Keys.ENTER);
     }
-    public static Chooses destiny(WebDriver nav, Hooking user){
+    public static Chooses destiny(WebDriver nav, Transaccion user){
         return Tasks.instrumented(Chooses.class, nav, user);
     }
 }

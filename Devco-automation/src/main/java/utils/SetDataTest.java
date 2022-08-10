@@ -9,9 +9,8 @@ public class SetDataTest {
 
     public static List<Map<String, String>> dePrueba(){
         List<Map<String, String>> datos;
-        String ruta = "./src/test/resources/data/";
-        String rutaAbsosuta = ruta + "DataFile.xlsx";
-        datos = GetData.deExcel(rutaAbsosuta, "select * from " + "Devco_test" + " where ID_Prueba = 1");
+        String ruta = "./src/test/resources/data/DataFile.xlsx";
+        datos = GetData.deExcel(ruta, "select * from " + "Devco_test" + " where ID_Prueba = 1");
         return datos;
     }
 

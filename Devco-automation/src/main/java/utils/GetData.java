@@ -12,6 +12,8 @@ import java.util.Map;
 
 public class GetData {
 
+    private GetData(){}
+
     public static List<Map<String, String>> deExcel(String rutaArchivo, String query) {
         List<Map<String, String>> listaDatos = new ArrayList<>();
         try {

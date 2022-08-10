@@ -1,6 +1,6 @@
 package models;
 
-public class Hooking {
+public class Transaccion {
 
     private String addessDestiny;
     private String name;
@@ -8,6 +8,8 @@ public class Hooking {
     private String email;
     private String emailWrong;
     private String invalidEmail;
+    private String placeDelivery;
+
 
     public String getAddessDestiny() {
         return addessDestiny;
@@ -55,5 +57,13 @@ public class Hooking {
 
     public void setInvalidEmail(String invalidEmail) {
         this.invalidEmail = invalidEmail;
+    }
+
+    public String getPlaceDelivery() {
+        return placeDelivery;
+    }
+
+    public void setPlaceDelivery(String placeDelivery) {
+        this.placeDelivery = placeDelivery;
     }
 }
