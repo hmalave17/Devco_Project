@@ -13,9 +13,4 @@ public class NumberRandom {
         return String.valueOf(min + nr.nextInt((int) max));
     }
 
-    public static String password(){
-        return "testOne" + nr.nextInt(999);
-    }
-
-
 }

@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
         glue = {"stepDefinitios", "setup"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         monochrome = true,
-        tags = "@BookHotelRegression"
+        tags = "@CarRentalSuccessful"
                 )
 
 

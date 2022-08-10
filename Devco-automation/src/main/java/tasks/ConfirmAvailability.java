@@ -1,7 +1,7 @@
 package tasks;
 
 import interactions.Click;
-import interactions.SelectRoom;
+import interactions.SelectIndex;
 import interactions.SwitchTabWindow;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -24,7 +24,7 @@ public class ConfirmAvailability implements Task {
         actor.attemptsTo(
                 SwitchTabWindow.change(),
                 net.serenitybdd.screenplay.actions.Scroll.to(AvailabilityPage.LABEL_AVAILABILITY_),
-                SelectRoom.user(nav, BUTTON_DOWN.getElements()),
+                SelectIndex.user(nav, BUTTON_DOWN.getElements(),1),
                 Click.on(AvailabilityPage.BUTTON_BOOK)
         );
     }

@@ -2,7 +2,7 @@ package tasks;
 
 import interactions.Click;
 import interactions.Type;
-import models.Hooking;
+import models.Transaccion;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -19,7 +19,7 @@ public class FillWrongData implements Task {
     }
 
     @Shared
-    Hooking user;
+    Transaccion user;
 
     @Override
     public <T extends Actor> void performAs(T actor) {

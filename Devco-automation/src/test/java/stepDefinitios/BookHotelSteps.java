@@ -91,7 +91,7 @@ public class BookHotelSteps {
 
     @And("user enter its date")
     public void userEnterItsDate() {
-        user.attemptsTo(FillsData.user(herBrowser));
+        user.attemptsTo(FillsData.user());
     }
 
     @Then("user completes its booking")
